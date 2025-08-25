@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298); /* fundal cinematic */
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: #fff;
       min-height: 100vh;
     }
@@ -38,6 +38,13 @@
       padding: 5px 10px;
       margin-left: 10px;
       cursor: pointer;
+    }
+
+    button.active {
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
     .container {
@@ -82,24 +89,16 @@
       opacity: 0.7;
       margin-top: 60px;
     }
-
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
-
   <nav>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <div class="links" id="nav-links">
+      <!-- Linkurile se vor actualiza din JS -->
     </div>
     <div class="lang-toggle">
-      <button onclick="switchLang('en')">EN</button>
-      <button onclick="switchLang('ro')">RO</button>
+      <button id="btn-en" onclick="switchLang('en')" class="active">EN</button>
+      <button id="btn-ro" onclick="switchLang('ro')">RO</button>
     </div>
   </nav>
 
@@ -108,30 +107,30 @@
     <div id="content-en">
       <header>
         <h1>Not just code. Crafted clarity.</h1>
-        <p>Hi, I'm Dragos — I build digital experiences that feel human.</p>
+        <p>Hi, I'm Dragos – I build digital experiences that feel human.</p>
       </header>
 
-      <section id="about">
+      <section id="about-en">
         <h2>About Me</h2>
-        <p>I'm a web developer based in Austria, passionate about simplicity, performance, and user experience. I believe good code is invisible — it just works.</p>
+        <p>I'm a web developer based in Austria, passionate about simplicity, performance, and user experience.</p>
       </section>
 
-      <section id="projects">
+      <section id="projects-en">
         <h2>Projects</h2>
         <ul>
           <li><strong>🌐 Portfolio Website</strong><br />Personal site built with HTML, CSS, and JavaScript.</li>
-          <li><strong>☁️ Weather App</strong><br />Real-time weather updates using OpenWeather API.</li>
-          <li><strong>✅ Task Manager</strong><br />Task tracking app with local storage support.</li>
+          <li><strong>🌦️ Weather App</strong><br />Real-time weather updates using external APIs.</li>
+          <li><strong>✅ Task Manager</strong><br />Simple app with local storage for task tracking.</li>
         </ul>
       </section>
 
-      <section id="contact">
+      <section id="contact-en">
         <h2>Contact</h2>
         <ul>
           <li>📧 <strong>Email:</strong> <a href="mailto:stoeanjr@gmail.com">stoeanjr@gmail.com</a></li>
-          <li>📞 <strong>Phone:</strong> <a href="tel:+436605600399">+43 660 560 0399</a> <em>(WhatsApp available)</em></li>
+          <li>📞 <strong>Phone:</strong> <a href="tel:+436605600399">+43 660 560 0399</a></li>
           <li>📍 <strong>Location:</strong> Stainach-Pürgg, Austria</li>
-          <li>🛠️ <strong>Fiverr:</strong> <a href="https://www.fiverr.com/dragos0301" target="_blank">Hire me on Fiverr</a></li>
+          <li>🛠️ <strong>Fiverr:</strong> <a href="https://www.fiverr.com/dragos0301" target="_blank">dragos0301</a></li>
         </ul>
       </section>
 
@@ -147,27 +146,27 @@
         <p>Salut, sunt Dragos — creez experiențe digitale care se simt umane.</p>
       </header>
 
-      <section id="about">
+      <section id="about-ro">
         <h2>Despre mine</h2>
-        <p>Sunt dezvoltator web stabilit în Austria, pasionat de simplitate, performanță și experiența utilizatorului. Cred că un cod bun e invizibil — pur și simplu funcționează.</p>
+        <p>Sunt dezvoltator web stabilit în Austria, pasionat de simplitate, performanță și experiența utilizatorului.</p>
       </section>
 
-      <section id="projects">
+      <section id="projects-ro">
         <h2>Proiecte</h2>
         <ul>
           <li><strong>🌐 Site de portofoliu</strong><br />Site personal construit cu HTML, CSS și JavaScript.</li>
-          <li><strong>☁️ Aplicație meteo</strong><br />Actualizări meteo în timp real cu OpenWeather API.</li>
+          <li><strong>🌦️ Aplicație meteo</strong><br />Actualizări meteo în timp real cu API-uri externe.</li>
           <li><strong>✅ Manager de sarcini</strong><br />Aplicație simplă cu stocare locală.</li>
         </ul>
       </section>
 
-      <section id="contact">
+      <section id="contact-ro">
         <h2>Contact</h2>
         <ul>
           <li>📧 <strong>Email:</strong> <a href="mailto:stoeanjr@gmail.com">stoeanjr@gmail.com</a></li>
-          <li>📞 <strong>Telefon:</strong> <a href="tel:+436605600399">+43 660 560 0399</a> <em>(WhatsApp disponibil)</em></li>
+          <li>📞 <strong>Telefon:</strong> <a href="tel:+436605600399">+43 660 560 0399</a></li>
           <li>📍 <strong>Locație:</strong> Stainach-Pürgg, Austria</li>
-          <li>🛠️ <strong>Fiverr:</strong> <a href="https://www.fiverr.com/dragos0301" target="_blank">Angajează-mă pe Fiverr</a></li>
+          <li>🛠️ <strong>Fiverr:</strong> <a href="https://www.fiverr.com/dragos0301" target="_blank">dragos0301</a></li>
         </ul>
       </section>
 
@@ -179,10 +178,37 @@
 
   <script>
     function switchLang(lang) {
-      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-      document.getElementById('content-ro').style.display = lang === 'ro' ? 'block' : 'none';
-    }
-  </script>
+      const contentEn = document.getElementById("content-en");
+      const contentRo = document.getElementById("content-ro");
+      const btnEn = document.getElementById("btn-en");
+      const btnRo = document.getElementById("btn-ro");
+      const navLinks = document.getElementById("nav-links");
 
+      if (lang === "en") {
+        contentEn.style.display = "block";
+        contentRo.style.display = "none";
+        btnEn.classList.add("active");
+        btnRo.classList.remove("active");
+        navLinks.innerHTML = `
+          <a href="#about-en">About</a>
+          <a href="#projects-en">Projects</a>
+          <a href="#contact-en">Contact</a>
+        `;
+      } else {
+        contentEn.style.display = "none";
+        contentRo.style.display = "block";
+        btnRo.classList.add("active");
+        btnEn.classList.remove("active");
+        navLinks.innerHTML = `
+          <a href="#about-ro">Despre</a>
+          <a href="#projects-ro">Proiecte</a>
+          <a href="#contact-ro">Contact</a>
+        `;
+      }
+    }
+
+    // Inițializare implicită
+    switchLang('en');
+  </script>
 </body>
 </html>
