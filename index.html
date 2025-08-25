@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dragos | Code with Soul</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298); /* fundal cinematic */
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .links a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav .lang-toggle button {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 5px 10px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px #000;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #fff;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      opacity: 0.7;
+      margin-top: 60px;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="lang-toggle">
+      <button onclick="switchLang('en')">EN</button>
+      <button onclick="switchLang('ro')">RO</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- ENGLISH VERSION -->
+    <div id="content-en">
+      <header>
+        <h1>Not just code. Crafted clarity.</h1>
+        <p>Hi, I'm Dragos — I build digital experiences that feel human.</p>
+      </header>
+
+      <section id="about">
+        <h2>About Me</h2>
+        <p>I'm a web developer based in Austria, passionate about simplicity, performance, and user experience. I believe good code is invisible — it just works.</p>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+          <li><strong>🌐 Portfolio Website</strong><br />Personal site built with HTML, CSS, and JavaScript.</li>
+          <li><strong>☁️ Weather App</strong><br />Real-time weather updates using OpenWeather API.</li>
+          <li><strong>✅ Task Manager</strong><br />Task tracking app with local storage support.</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li>📧 <strong>Email:</strong> <a href="mailto:stoeanjr@gmail.com">stoeanjr@gmail.com</a></li>
+          <li>📞 <strong>Phone:</strong> <a href="tel:+436605600399">+43 660 560 0399</a> <em>(WhatsApp available)</em></li>
+          <li>📍 <strong>Location:</strong> Stainach-Pürgg, Austria</li>
+          <li>🛠️ <strong>Fiverr:</strong> <a href="https://www.fiverr.com/dragos0301" target="_blank">Hire me on Fiverr</a></li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>Made in Austria. Powered by curiosity. Fueled by coffee. © 2025 Dragos</p>
+      </footer>
+    </div>
+
+    <!-- ROMANIAN VERSION -->
+    <div id="content-ro" style="display:none;">
+      <header>
+        <h1>Nu doar cod. Claritate creată.</h1>
+        <p>Salut, sunt Dragos — creez experiențe digitale care se simt umane.</p>
+      </header>
+
+      <section id="about">
+        <h2>Despre mine</h2>
+        <p>Sunt dezvoltator web stabilit în Austria, pasionat de simplitate, performanță și experiența utilizatorului. Cred că un cod bun e invizibil — pur și simplu funcționează.</p>
+      </section>
+
+      <section id="projects">
+        <h2>Proiecte</h2>
+        <ul>
+          <li><strong>🌐 Site de portofoliu</strong><br />Site personal construit cu HTML, CSS și JavaScript.</li>
+          <li><strong>☁️ Aplicație meteo</strong><br />Actualizări meteo în timp real cu OpenWeather API.</li>
+          <li><strong>✅ Manager de sarcini</strong><br />Aplicație simplă cu stocare locală.</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li>📧 <strong>Email:</strong> <a href="mailto:stoeanjr@gmail.com">stoeanjr@gmail.com</a></li>
+          <li>📞 <strong>Telefon:</strong> <a href="tel:+436605600399">+43 660 560 0399</a> <em>(WhatsApp disponibil)</em></li>
+          <li>📍 <strong>Locație:</strong> Stainach-Pürgg, Austria</li>
+          <li>🛠️ <strong>Fiverr:</strong> <a href="https://www.fiverr.com/dragos0301" target="_blank">Angajează-mă pe Fiverr</a></li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>Creat în Austria. Alimentat de curiozitate. Întărit cu cafea. © 2025 Dragos</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-ro').style.display = lang === 'ro' ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
