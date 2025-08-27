@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Manager | Dragos Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🗂️ Task Manager</h1>
+    <p class="intro">
+      Welcome! This simple app helps you organize your daily tasks.  
+      Add tasks, mark them as completed, and keep track of your progress.  
+      All data is saved locally in your browser.
+    </p>
+
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Add a new task...">
+      <button onclick="addTask()">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
