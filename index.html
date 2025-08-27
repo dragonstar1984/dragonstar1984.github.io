@@ -1,72 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dragos | Code with Soul</title>
+  <title>Dragos | Portofoliu</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
       color: #fff;
-      min-height: 100vh;
+      margin: 0;
+      transform: scale(0.95);
+      transform-origin: top center;
+    }
+
+    .top-bar {
+      text-align: center;
+      font-size: 13px;
+      color: #ccc;
+      background-color: #111;
+      padding: 6px 0;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(34, 34, 34, 0.9);
       padding: 10px 20px;
-      position: sticky;
-      top: 0;
+      position: fixed;
+      top: 26px;
+      width: 100%;
       z-index: 1000;
     }
 
     nav .links a {
       color: #fff;
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav .lang-toggle button {
-      background: transparent;
-      border: 1px solid #fff;
-      color: #fff;
-      padding: 5px 10px;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-
-    button.active {
-      background-color: #333;
-      color: #fff;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      margin: 0 10px;
+      font-weight: 500;
     }
 
     .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
+      max-width: 960px;
+      margin: 120px auto 0;
+      padding: 20px;
     }
 
     section {
       margin-bottom: 50px;
     }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px #000;
-    }
-
     h2 {
       font-size: 2em;
       margin-bottom: 20px;
       border-bottom: 2px solid #fff;
+      text-shadow: 2px 2px 4px #000;
       display: inline-block;
       padding-bottom: 5px;
     }
@@ -78,115 +67,143 @@
 
     li {
       margin-bottom: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 8px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
     }
 
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      opacity: 0.7;
-      margin-top: 60px;
-    }
-
-    /* 🔵 Linkuri evidențiate */
-    #contact-en a,
-    #contact-ro a {
-      color: #00ffff;
+    .project-link {
+      color: #00ffe7;
       font-weight: bold;
       text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 5px #00ffe7;
     }
 
-    #contact-en a:hover,
-    #contact-ro a:hover {
-      color: #ffffff;
-      text-decoration: underline;
+    .project-link:hover {
+      color: #222;
+      background-color: #00ffe7;
+      box-shadow: 0 0 15px #00ffe7;
+    }
+
+    button {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 4px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    button.active {
+      background-color: #fff;
+      color: #222;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav .links a {
+        display: block;
+        margin: 5px 0;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      .container {
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <div class="top-bar">
+    © Dragos 2025 • Cod cu suflet
+  </div>
+
   <nav>
-    <div class="links" id="nav-links"></div>
-    <div class="lang-toggle">
-      <button id="btn-en" onclick="switchLang('en')" class="active">EN</button>
-      <button id="btn-ro" onclick="switchLang('ro')">RO</button>
+    <div class="logo">Dragos</div>
+    <div class="links" id="nav-links">
+      <a href="#about-ro">Despre</a>
+      <a href="#projects-ro">Proiecte</a>
+      <a href="#contact-ro">Contact</a>
+    </div>
+    <div>
+      <button onclick="switchLang('ro')" id="btn-ro">RO</button>
+      <button onclick="switchLang('en')" id="btn-en">EN</button>
     </div>
   </nav>
 
   <div class="container">
-    <!-- ENGLISH VERSION -->
-    <div id="content-en">
-      <header>
-        <h1>Not just code. Crafted clarity.</h1>
-        <p>Hi, I'm Dragos – I build digital experiences that feel human.</p>
-      </header>
-
-      <section id="about-en">
-        <h2>About Me</h2>
-        <p>I'm a web developer based in Austria, passionate about simplicity, performance, and user experience.</p>
-      </section>
-
-      <section id="projects-en">
-        <h2>Projects</h2>
-        <ul>
-          <li><strong>🌐 Portfolio Website</strong><br />Personal site built with HTML, CSS, and JavaScript.</li>
-          <li><strong>🌦️ Weather App</strong><br />Real-time weather updates using external APIs.</li>
-          <li><strong>✅ Task Manager</strong><br />Simple app with local storage for task tracking.</li>
-        </ul>
-      </section>
-
-      <section id="contact-en">
-        <h2>Contact</h2>
-        <ul>
-          <li>📧 <strong>Email:</strong> <a href="mailto:stoeanjr@gmail.com">stoeanjr@gmail.com</a></li>
-          <li>📞 <strong>Phone:</strong> <a href="tel:+436605600399">+43 660 560 0399</a></li>
-          <li>📍 <strong>Location:</strong> Stainach-Pürgg, Austria</li>
-          <li>🛠️ <strong>Fiverr:</strong> <a href="https://www.fiverr.com/dragos0301" target="_blank">dragos0301</a></li>
-        </ul>
-      </section>
-
-      <footer>
-        <p>Made in Austria. Powered by curiosity. Fueled by coffee. © 2025 Dragos</p>
-      </footer>
-    </div>
-
-    <!-- ROMANIAN VERSION -->
-    <div id="content-ro" style="display:none;">
-      <header>
-        <h1>Nu doar cod. Claritate creată.</h1>
-        <p>Salut, sunt Dragos — creez experiențe digitale care se simt umane.</p>
-      </header>
-
+    <!-- Romanian Content -->
+    <div id="content-ro">
       <section id="about-ro">
         <h2>Despre mine</h2>
-        <p>Sunt dezvoltator web stabilit în Austria, pasionat de simplitate, performanță și experiența utilizatorului.</p>
+        <p>Sunt dezvoltator web, pasionat de simplitate, performanță și experiență.</p>
       </section>
 
       <section id="projects-ro">
         <h2>Proiecte</h2>
         <ul>
-          <li><strong>🌐 Site de portofoliu</strong><br />Site personal construit cu HTML, CSS și JavaScript.</li>
-          <li><strong>🌦️ Aplicație meteo</strong><br />Actualizări meteo în timp real cu API-uri externe.</li>
-          <li><strong>✅ Manager de sarcini</strong><br />Aplicație simplă cu stocare locală.</li>
+          <li><strong>Website portofoliu:</strong> Site personal construit cu HTML, CSS și JavaScript.</li>
+          <li><strong>Task Manager:</strong> Aplicație simplă cu stocare locală pentru gestionarea sarcinilor.</li>
+          <li><strong>Aplicație meteo:</strong> Actualizări în meteo în timp real folosind API-uri externe.
+            <a href="https://dragonstar1984.github.io/weather-app/" class="project-link" target="_blank">Vezi proiectul</a>
+          </li>
         </ul>
       </section>
 
       <section id="contact-ro">
         <h2>Contact</h2>
+        <p>Email: stoeanjr@gmail.com</p>
+        <p>Telefon: 00436605600399</p>
+        <p><span>Profilul meu Fiverr</span> — 
+          <a href="https://www.fiverr.com/dragos0301" class="project-link" target="_blank">dragos0301</a>
+        </p>
+      </section>
+    </div>
+
+    <!-- English Content -->
+    <div id="content-en" style="display: none;">
+      <section id="about-en">
+        <h2>About Me</h2>
+        <p>I am a web developer, passionate about simplicity, performance, and experience.</p>
+      </section>
+
+      <section id="projects-en">
+        <h2>Projects</h2>
         <ul>
-          <li>📧 <strong>Email:</strong> <a href="mailto:stoeanjr@gmail.com">stoeanjr@gmail.com</a></li>
-          <li>📞 <strong>Telefon:</strong> <a href="tel:+436605600399">+43 660 560 0399</a></li>
-          <li>📍 <strong>Locație:</strong> Stainach-Pürgg, Austria</li>
-          <li>🛠️ <strong>Fiverr:</strong> <a href="https://www.fiverr.com/dragos0301" target="_blank">dragos0301</a></li>
+          <li><strong>Portfolio Website:</strong> Personal site built with HTML, CSS, and JavaScript.</li>
+          <li><strong>Task Manager:</strong> Simple application with local storage for task management.</li>
+          <li><strong>Weather App:</strong> Real-time weather updates using external APIs.
+            <a href="https://dragonstar1984.github.io/weather-app/" class="project-link" target="_blank">View Project</a>
+          </li>
         </ul>
       </section>
 
-      <footer>
-        <p>Creat în Austria. Alimentat de curiozitate. Întărit cu cafea. © 2025 Dragos</p>
-      </footer>
+      <section id="contact-en">
+        <h2>Contact</h2>
+        <p>Email: stoeanjr@gmail.com</p>
+        <p>Phone: 00436605600399</p>
+        <p><span>My Fiverr Profile</span> — 
+          <a href="https://www.fiverr.com/dragos0301" class="project-link" target="_blank">dragos0301</a>
+        </p>
+      </section>
     </div>
   </div>
+
+  <footer style="text-align: center; padding: 20px;">
+    <p>Site creat cu suflet. Curiozitate și creativitate în fiecare linie de cod.</p>
+  </footer>
 
   <script>
     function switchLang(lang) {
@@ -209,8 +226,8 @@
       } else {
         contentEn.style.display = "none";
         contentRo.style.display = "block";
-        btnRo.classList.add("active");
         btnEn.classList.remove("active");
+        btnRo.classList.add("active");
         navLinks.innerHTML = `
           <a href="#about-ro">Despre</a>
           <a href="#projects-ro">Proiecte</a>
@@ -219,8 +236,9 @@
       }
     }
 
-    // Inițializare implicită
-    switchLang('en');
+    window.onload = function () {
+      switchLang('ro');
+    };
   </script>
 </body>
 </html>
