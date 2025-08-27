@@ -13,15 +13,15 @@
       transform: scale(0.95);
       transform-origin: top center;
     }
-
     .top-bar {
       text-align: center;
       font-size: 13px;
       color: #ccc;
       background-color: #111;
       padding: 6px 0;
+      z-index: 1002;
+      position: relative;
     }
-
     nav {
       display: flex;
       justify-content: space-between;
@@ -33,24 +33,35 @@
       width: 100%;
       z-index: 1000;
     }
-
     nav .links a {
       color: #fff;
       text-decoration: none;
       margin: 0 10px;
       font-weight: 500;
     }
-
+    nav button {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 4px;
+      margin-left: 10px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1001;
+    }
+    button.active {
+      background-color: #fff;
+      color: #222;
+    }
     .container {
       max-width: 960px;
       margin: 120px auto 0;
       padding: 20px;
     }
-
     section {
       margin-bottom: 50px;
     }
-
     h2 {
       font-size: 2em;
       margin-bottom: 20px;
@@ -59,19 +70,16 @@
       display: inline-block;
       padding-bottom: 5px;
     }
-
     ul {
       list-style: none;
       padding-left: 0;
     }
-
     li {
       margin-bottom: 20px;
       padding: 10px;
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 6px;
     }
-
     .project-link {
       color: #00ffe7;
       font-weight: bold;
@@ -81,43 +89,23 @@
       transition: all 0.3s ease;
       box-shadow: 0 0 5px #00ffe7;
     }
-
     .project-link:hover {
       color: #222;
       background-color: #00ffe7;
       box-shadow: 0 0 15px #00ffe7;
     }
-
-    button {
-      background: transparent;
-      border: 1px solid #fff;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 4px;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-
-    button.active {
-      background-color: #fff;
-      color: #222;
-    }
-
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
         align-items: flex-start;
       }
-
       nav .links a {
         display: block;
         margin: 5px 0;
       }
-
       h2 {
         font-size: 1.5em;
       }
-
       .container {
         padding: 10px;
       }
@@ -125,11 +113,7 @@
   </style>
 </head>
 <body>
-
-  <div class="top-bar">
-    © Dragos 2025 • Cod cu suflet
-  </div>
-
+  <div class="top-bar">© Dragos 2025 • Cod cu suflet</div>
   <nav>
     <div class="logo">Dragos</div>
     <div class="links" id="nav-links">
@@ -150,12 +134,11 @@
         <h2>Despre mine</h2>
         <p>Sunt dezvoltator web, pasionat de simplitate, performanță și experiență.</p>
       </section>
-
       <section id="projects-ro">
         <h2>Proiecte</h2>
         <ul>
           <li>
-            <strong><a href="index.html" class="project-link" target="_blank">Website portofoliu</a></strong>: Site personal construit cu HTML, CSS și JavaScript.
+            <strong><a href="https://github.com/dragonstar1984" class="project-link" target="_blank">Website portofoliu</a></strong>: Site personal construit cu HTML, CSS și JavaScript.
           </li>
           <li>
             <strong><a href="task-manager/index.html" class="project-link" target="_blank">Task Manager</a></strong>: Aplicație simplă cu stocare locală pentru gestionarea sarcinilor.
@@ -165,7 +148,6 @@
           </li>
         </ul>
       </section>
-
       <section id="contact-ro">
         <h2>Contact</h2>
         <p>Email: stoeanjr@gmail.com</p>
@@ -182,12 +164,11 @@
         <h2>About Me</h2>
         <p>I am a web developer, passionate about simplicity, performance, and experience.</p>
       </section>
-
       <section id="projects-en">
         <h2>Projects</h2>
         <ul>
           <li>
-            <strong><a href="index.html" class="project-link" target="_blank">Portfolio Website</a></strong>: Personal site built with HTML, CSS, and JavaScript.
+            <strong><a href="https://github.com/dragonstar1984" class="project-link" target="_blank">Portfolio Website</a></strong>: Personal site built with HTML, CSS, and JavaScript.
           </li>
           <li>
             <strong><a href="task-manager/index.html" class="project-link" target="_blank">Task Manager</a></strong>: Simple application with local storage for task management.
@@ -197,7 +178,6 @@
           </li>
         </ul>
       </section>
-
       <section id="contact-en">
         <h2>Contact</h2>
         <p>Email: stoeanjr@gmail.com</p>
@@ -207,10 +187,17 @@
         </p>
       </section>
     </div>
-  </div>
+      </div> <!-- final container -->
 
   <footer style="text-align: center; padding: 20px;">
-    <p>Site creat cu suflet. Curiozitate și creativitate în fiecare linie de cod.</p>
+    <div id="footer-ro">
+      <p>Site creat cu suflet. Curiozitate și creativitate în fiecare linie de cod.</p>
+      <p>© Dragos 2025</p>
+    </div>
+    <div id="footer-en" style="display: none;">
+      <p>Site made with soul. Curiosity and creativity in every line of code.</p>
+      <p>© Dragos 2025</p>
+    </div>
   </footer>
 
   <script>
@@ -220,6 +207,11 @@
       const btnEn = document.getElementById("btn-en");
       const btnRo = document.getElementById("btn-ro");
       const navLinks = document.getElementById("nav-links");
+      const footerRo = document.getElementById("footer-ro");
+      const footerEn = document.getElementById("footer-en");
+
+      document.documentElement.lang = lang;
+      localStorage.setItem("preferredLang", lang);
 
       if (lang === "en") {
         contentEn.style.display = "block";
@@ -231,6 +223,8 @@
           <a href="#projects-en">Projects</a>
           <a href="#contact-en">Contact</a>
         `;
+        footerRo.style.display = "none";
+        footerEn.style.display = "block";
       } else {
         contentEn.style.display = "none";
         contentRo.style.display = "block";
@@ -241,11 +235,14 @@
           <a href="#projects-ro">Proiecte</a>
           <a href="#contact-ro">Contact</a>
         `;
+        footerRo.style.display = "block";
+        footerEn.style.display = "none";
       }
     }
 
     window.onload = function () {
-      switchLang('ro');
+      const savedLang = localStorage.getItem("preferredLang") || "ro";
+      switchLang(savedLang);
     };
   </script>
 </body>
